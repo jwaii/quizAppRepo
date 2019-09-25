@@ -1,0 +1,33 @@
+ .frontPage {
+    text-align: center;
+}
+
+.frontPageUl  {
+    position: relative;
+    vertical-align: middle;
+}
+
+.questionText {
+    display: block;
+    margin-inline-start: 2px;
+    margin-inline-end: 2px;
+    padding-block-start: 2em;
+    padding-inline-start: 0.75em;
+    padding-inline-end: 0.75em;
+    padding-block-end: 0.625em;
+    min-inline-size: min-content;
+}
+
+legend {
+    font-size: 20px;
+    font-weight: bolder;
+    margin-bottom: 20px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.images {
+    text-align: center;
+}
