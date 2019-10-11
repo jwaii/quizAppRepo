@@ -1,5 +1,11 @@
- .frontPage {
+.mainBody{
+    background-color: #E4E2E7;
+    font-family: 'Playfair Display', serif;
+}
+
+.frontPage {
     text-align: center;
+    margin-top: 100px;
 }
 
 .frontPageUl  {
@@ -19,7 +25,7 @@
 }
 
 legend {
-    font-size: 20px;
+    font-size: 25px;
     font-weight: bolder;
     margin-bottom: 20px;
 }
@@ -28,6 +34,59 @@ ul {
     list-style-type: none;
 }
 
+.js-choices{
+    vertical-align: baseline;
+    text-align: left;
+    margin-left: 25px;
+    margin-bottom: 25px;
+    font-style: italic;
+    font-size: 20px;
+}
+
 .images {
     text-align: center;
+}
+
+.hidden{
+    display: none;
+}
+
+.header{
+    margin-top: 50px;
+}
+
+.js-form{
+    background-color: whitesmoke;
+    border-top: 100px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: auto;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 10px;
+    border-style: solid black;
+}
+
+.button{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    border-radius: 10px;
+}
+
+.questionCount{
+    font-family: 'Playfair Display', serif;
+    font-size: 25px;
+}
+
+.scoreTotal{
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    margin-left: auto;
+    margin-right: auto;
 }

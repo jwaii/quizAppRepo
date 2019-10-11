@@ -5,26 +5,64 @@
         <title> Cooking Quiz App </title>
         <meta name= "description" type="A Quiz App About Cooking">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://fonts.googleapis.com/css?family=Playfair+Display&display=swap" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="main.css">
+
     </head>
-    <body>
+    <body class="mainBody">
         <main role= "main" class= "container" >
     <div class="frontPage">
-        <header role="banner" class="header">
-        <h1 class="question">Are you a Master Chef?</h1>
-    </header>
-        <section>
-        <img src="frontPageFood.jpg" alt="chef cutting" class="images" width="300">
-         </section>
-  
-          <ul class= "frontPageUl">
-            <li>Question: (MAKE THE SCORE)
-                 </li>
-            <li>Score: (SCORE COUNTER)    
-            </li>
-        </ul>
-        <button type="submit" class="submitButton"> Submit</button>
-
+            <header role="banner" class="header">
+            <h1 class="question">Are You a Master Chef?</h1>
+            <button type="button" class="startButton button">Start Quiz</button>
+        </header>
+        <form class="hidden js-form">
+        <fieldset id="questionBox">
+            <legend id="question">the question here</legend>
+                <div id="intro"></div>
+                <div id="result">
+                    <p></p>
+                </div>
+                <div id="end-results"></div>
+                <section class="js-choices">
+                    <div class="radio-item">
+                        <input type="radio" name="answers" id="answer-0" value="0">
+                        <label for="answer-0"><span>Answer One</span></label>
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" name="answers" id="answer-1"  value="1">
+                        <label for="answer-1"><span>Answer Two</span></label>
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" name="answers" id="answer-2" value="2">
+                        <label for="answer-2"><span>Answer Three</span></label>
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" name="answers" id="answer-3" value="3">
+                        <label for="answer-3"><span>Answer Four</span></label>
+                    </div>
+                </section>
+        </fieldset>
+        <button id="button-submit" class="button" type="submit">Submit</button>
+        </form>
+            <section class="js-final hidden">
+            <img src="frontPageFood.jpg" alt="chef cutting" class="images" width="300">
+            </section>
+    <div class="alt-page-correct altBox hidden">
+        <img src="happyToast.jpg" alt="happy toast" class="images" width="300">
     </div>
+
+    <div class="alt-page-incorrect altBox hidden">
+        <img src="sadToast.jpg" alt="sad toast" class ="images" width="300">
+    </div>
+    <ul class= "frontPageUl hidden">
+        <div class="questionCount">Question: <span id="questionNum">1</span>/10</div>
+        <div class="scoreTotal">Score: <span id="myScore">0</span></div>
+    </ul>
+</div>
         </main>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="main.js"></script>
     </body>
+
+</html>
