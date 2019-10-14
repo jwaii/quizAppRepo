@@ -1,6 +1,6 @@
 
 const STORE = [
-    /*
+    
     {
         //1
         question: 'Which of these terms means to cook food in its own juices with a small amount of fat over low heat, just until softened?',
@@ -116,7 +116,7 @@ const STORE = [
         correctAnswer:
             'Salt',
     },
-    */
+    
     {
         //10
         question: 'Which of the following should you avoid marinating overnight?',
@@ -140,33 +140,10 @@ let score = 0;
 console.log('hello');
 
 
-
-
-/*
-
-//create a variable to keep track of quiz score and current question
-
-
-// create template that generates new questions and hides old questions
-
-
-
-//make score trackerupdate +1 if the correct answer was selected
-
-//Show question number, and have it update after each qustion is answered.
-//does not need to be the correct answer (submit button just needs to be pressed)
-*/
-
-
-
 //non functioning submit form START / Compare Correct Answer
 function submitForm() {
 $('form').on('submit', (event) => { event.preventDefault();
-    
-    //$('.altBox').hide();
-    //$('.response').show();
     let selected = $('input[type="radio"]:checked').attr('value'); //fixme
-    //let answer = selected.val(); //possibly replacable
     console.log(selected);
 
     let correct = STORE[question].correctAnswer;
@@ -192,12 +169,10 @@ handleNext();
         score++;
         $('#myScore').text(score);
         $('.alt-page-correct').removeClass('hidden');
-        //$('.altBox').show();
         $('.alt-page-correct').html(`<img src="happyToast.jpg" alt="happy toast" class="images" width="300">
         <p>You Got It! Keep Cooking!!</p> 
         <button type=button class="nextButton">Next</button></div>`);
     };
-
 
     function incorrectAnswer(){
        
@@ -211,38 +186,34 @@ handleNext();
         <button type=button class="nextButton button">Next</button></div>`);
     };
 
-
-       // handle event listener, onclick for next button
-    //must recognize parent tag
-    //event deligation (KEY WORD GOOGLE)
-    //new info to show must be the next question
-    //question++
-
-
-    //console.log function in 220 (quiz over ran) //////////////
     function quizOver(){
         console.log(STORE.length);
         $('.altBox').addClass('hidden');
         $('.js-form').addClass('hidden');
         $('.js-final').removeClass('hidden');
+        restartQuiz();
     };
-    
-    //on click
-    //return to .frontPage
-
 
     function restartQuiz(){  
         console.log('show restart')  
         $('.frontPage').html(`
         <span class="quizEnd">You've completed the quiz!</span>
-        <span class="quizScored">Your score was ${score}/10</span>
-        <button type="button" id="restart">Restart?</button>`
+        <span class="quizScored">Your score was ${score}/${STORE.length}</span>
+        <button class="button" type="button" id="restart">Restart?</button>`
         )
-        console.log('show restart');
+        $('.frontPage').on('click','#restart', (event)=>{
+          console.log('clicked Restart button');
+          start();
+          $('#restart, .quizEnd, .quizScored').addClass('hidden') //WORKS
+          //$('.js-form').removeClass('hidden'), console.log('show form');
+          //$('.startButton').removeClass('hidden'), console.log('show');
+          location.reload();
+        } )
+        
     };
 
     function quizRestart(){
-        $('.frontPage').on('click','#restart',function(event){
+        $('.frontPage').on('click','#restart',function(){
            startQuiz();
            console.log('quiz restart');
         })
@@ -256,7 +227,8 @@ handleNext();
                 quizOver();
             } else {
             question++;
-            $('#questionNum').text(question+1)
+            $('#questionNum').text(question+1);
+            $('#totalNum').text(STORE.length);
             console.log('nextQ');
             $('.altBox').addClass('hidden');
             displayQuestion(question);
@@ -266,9 +238,9 @@ handleNext();
     };
    
 
-function generateChoices(qNum,index){ //id="answer-${index}" index not qNum
+function generateChoices(qNum,index){ 
     return `<div class="radio-item">
-    <input type="radio" name="answers" id="answer-${index}" value="${STORE[qNum].answers[index]}">
+    <input type="radio" name="answers" id="answer-${index}" value="${STORE[qNum].answers[index]}" required>
     <label for="answer-${index}"><span>${STORE[qNum].answers[index]}</span></label>
     </div>`
 };
@@ -288,29 +260,25 @@ function displayQuestion(qNum){
     $('.js-form').removeClass('hidden');
     console.log(qNum);
     $('#question').text(STORE[qNum].question);
+    $('#totalNum').text(STORE.length);
     displayChoices(qNum);
     $('.frontPageUl').removeClass('hidden');
 };
 
 
-//check answer to see if correct
-
-function checkAnswers (qNum, index){
-    $('')
-};
-
-
-
-function handleStart(){
-    $('.startButton').on('click', function(){
-        console.log('hello');
+function start(){
+    console.log('hello');
         $('form').removeClass('hidden');
         $('.startButton').addClass('hidden');
-        //displ question function Displ()
         displayQuestion(0);
         //displ answr
         submitForm();
-       
+}
+
+function handleStart(){
+    $('.startButton').on('click', function(){
+        start();
+         
     });
 };
 
