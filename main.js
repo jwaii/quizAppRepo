@@ -24,7 +24,7 @@ const STORE = [
             'A convection oven uses radioactivity',
         ],
         correctAnswer:
-            'What is the difference between a convection oven and a conventional oven?',
+            'A convection oven uses a fan',
     
     },
     {
@@ -104,6 +104,7 @@ const STORE = [
             'Pine nuts',
         
     },
+
     {
         //9
         question: 'When a recipe calls for wine, most cooks avoid using cooking wines because they contain what?',
@@ -116,7 +117,6 @@ const STORE = [
         correctAnswer:
             'Salt',
     },
-    
     {
         //10
         question: 'Which of the following should you avoid marinating overnight?',
@@ -170,8 +170,8 @@ handleNext();
         $('#myScore').text(score);
         $('.alt-page-correct').removeClass('hidden');
         $('.alt-page-correct').html(`<img src="happyToast.jpg" alt="happy toast" class="images" width="300">
-        <p>You Got It! Keep Cooking!!</p> 
-        <button type=button class="nextButton">Next</button></div>`);
+        <p class="response">You Got It! Keep Cooking!!</p> 
+        <button type=button class="nextButton button">Next</button></div>`);
     };
 
     function incorrectAnswer(){
@@ -182,7 +182,7 @@ handleNext();
         $('#myScore').text(score);
         $('.alt-page-incorrect').removeClass('hidden');
         $('.alt-page-incorrect').html(`<img src="sadToast.jpg" alt="sad toast" class ="images" width="300">
-        <p>Foods Burning...<span>The correct answer is "${STORE[question].correctAnswer}"</span></p>
+        <p class="response" >Foods Burning...<span>The correct answer is "${STORE[question].correctAnswer}"</span></p>
         <button type=button class="nextButton button">Next</button></div>`);
     };
 
@@ -199,14 +199,16 @@ handleNext();
         $('.frontPage').html(`
         <span class="quizEnd">You've completed the quiz!</span>
         <span class="quizScored">Your score was ${score}/${STORE.length}</span>
+        <br></br><img src="frontPageFood.jpg" alt="chef cutting" class="images" width="200">
         <button class="button" type="button" id="restart">Restart?</button>`
         )
         $('.frontPage').on('click','#restart', (event)=>{
           console.log('clicked Restart button');
           start();
-          $('#restart, .quizEnd, .quizScored').addClass('hidden') //WORKS
+          $('#restart, .quizEnd, .quizScored, .images').addClass('hidden'); //WORKS
           //$('.js-form').removeClass('hidden'), console.log('show form');
           //$('.startButton').removeClass('hidden'), console.log('show');
+          
           location.reload();
         } )
         

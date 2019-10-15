@@ -1,11 +1,11 @@
 .mainBody{
-    background-color: #E4E2E7;
-    font-family: 'Playfair Display', serif;
+    background-color: #81cfe0;
+    font-family: 'Montserrat', serif;
 }
 
 .frontPage {
     text-align: center;
-    margin-top: 100px;
+    margin-top: 50px;
 }
 
 .frontPageUl  {
@@ -35,16 +35,21 @@ ul {
 }
 
 .js-choices{
+    font-family: 'Courier New', serif;
     vertical-align: baseline;
     text-align: left;
     margin-left: 25px;
     margin-bottom: 25px;
     font-style: italic;
     font-size: 20px;
+    font-weight: 300;
 }
+
 
 .images {
     text-align: center;
+    border: solid white 20px;
+    border-radius: 500px;
 }
 
 .hidden{
@@ -52,7 +57,7 @@ ul {
 }
 
 .header{
-    margin-top: 50px;
+    margin-top: 0px;
 }
 
 .js-form{
@@ -66,6 +71,7 @@ ul {
     padding-right: 20px;
     border-radius: 10px;
     border-style: solid black;
+    width: 60%;
 }
 
 .button{
@@ -78,15 +84,40 @@ ul {
     border-radius: 10px;
 }
 
-.questionCount{
-    font-family: 'Playfair Display', serif;
+button:hover {
+    background-color: #DADFE1;
+}
+
+.questionCount, .quizScored, .quizEnd, .response{
+    font-family: 'Courier New', serif;
     font-size: 25px;
+    text-shadow: 2px 2px #FFFFFF;
 }
 
 .scoreTotal{
     text-align: center;
-    font-family: 'Playfair Display', serif;
+    font-family: 'Courier New', serif;
     font-size: 22px;
     margin-left: auto;
     margin-right: auto;
+    text-shadow: 2px 2px #FFFFFF;
+
+}
+
+.questionCount, .scoreTotal{
+    text-align: right;
+}
+
+.question{
+    text-align: left;
+    font-size: 300%;
+    font-weight: 200;
+    text-shadow: 3px 3px#FFFFFF;
+    letter-spacing: 2px;
+    letter-spacing: 2px;
+}
+
+.js-final{
+    vertical-align: middle;
+    text-align: center;
 }
